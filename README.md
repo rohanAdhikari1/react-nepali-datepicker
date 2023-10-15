@@ -3,7 +3,7 @@
 ## Introduction
 
 React Nepali Date Picker is a widget for react , this is a typical calendar picker ,
-it is very light with and can be intigrated with ayour own styling component
+it is very light weight and can be intigrated with your own styling component
 
 ## Installation
 
@@ -19,6 +19,7 @@ Calendar can be used to act as an input component as well. All the parameters ar
 2. onSelect : returns the value that has been selected or the date that user has clicked on
 3. inputprops: props for input element for using define input element.
 4. className: class for root container.
+5. renderinput: to render custom input field.
 
 ## Demo
 
@@ -31,6 +32,34 @@ commands to run demo app
   cd app
   npm run dev
 ```
+
+## NepaliDateConverter
+
+it is the group of function which convert dates between Bs,Ad and many more.
+
+1. BsAddDays(date,day)
+2. BsDatesDiff(date,date)
+3. getMonths
+4. getNepaliMonths
+5. getNepaliMonthsInNepali
+6. getNepaliMonth(0-11)
+7. getCurrentDayName
+8. getDaynumberFromBsDate(date)
+9. AD2BS(ad format date)
+10. BS2AD(bs format date)
+11. getNepaliDate
+12. getDateInWords
+13. getAdDateInWords(date)
+14. getNepaliDateInWords(date)
+15. getCurrentYear
+16. getCurrentMonth
+17. getCurrentDay
+18. getCurrentBsyear
+19. getCurrentBsmonth
+20. getCurrentBsday
+21. getBsyear(date)
+22. getBsmonth(date)
+23. getBsday(date)
 
 ## Styling
 
@@ -60,10 +89,11 @@ Add this to your application css to change datepicker styling, use this to chang
 
 ## Usage
 
+For pre defined input field
+
 ```javascript
 import React, { useState } from "react";
-import {
-  NepaliDatePicker,
+import NepaliDatePicker, {
   NepaliDateConverter,
 } from "react-nepali-date-picker-lite";
 
@@ -72,6 +102,31 @@ function App() {
   const [value, setValue] = useState(today);
   return <NepaliDatePicker value={value} onSelect={setValue} />;
 }
+
+export default App;
+```
+
+For self Defined Input field
+
+```javascript
+import React, { useState } from "react";
+import NepaliDatePicker, {
+  NepaliDateConverter,
+} from "react-nepali-date-picker-lite";
+
+function App() {
+  const today = NepaliDateConverter.getNepaliDate();
+  const [value, setValue] = useState(today);
+  return (
+    <NepaliDatePicker
+      value={value}
+      onSelect={setValue}
+      renderInput={(props) => <input type="text" {...props} />}
+    />
+  );
+}
+
+export default App;
 ```
 
 ## Author
