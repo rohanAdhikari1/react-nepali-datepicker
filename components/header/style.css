@@ -1,0 +1,26 @@
+.picker-header-container{
+    height: 45px;
+    display: flex;
+}
+.prev-btn{
+    padding: 15px;
+    justify-content: flex-start;
+}
+
+.next-btn{
+    padding: 15px;
+    margin-left: auto;
+}
+
+.month-select{
+    margin: auto;
+    padding: 7px 0;
+}
+
+.year-select {
+    margin: auto;
+    padding: 7px 0;
+}
+.hide{
+    display: none;
+}
