@@ -15,12 +15,14 @@ npm i react-nepali-date-picker-lite
 
 Calendar can be used to act as an input component as well. All the parameters are optional. And also can pass custom inpt component as children
 
-1. value : send the date from which to show calendar with else default is the current date
+1. value : send the date from which to show calendar with else default is the current date. Date must be in 'YYY-MM-DD' format currently only one format is supported.
 2. onSelect : returns the value that has been selected or the date that user has clicked on
+3. inputprops: props for input element for using define input element.
+4. className: class for root container.
 
 ## Demo
 
-# clickhere ['https://demo.rohan.info.np/ReactNpDatePicker/']
+[clickhere](https://demo.rohan.info.np/ReactNpDatePicker/)
 
 commands to run demo app
 
@@ -60,10 +62,18 @@ Add this to your application css to change datepicker styling, use this to chang
 
 ```javascript
 import React, { useState } from "react";
-import Calendar from "react-nepali-date-picker";
+import {
+  NepaliDatePicker,
+  NepaliDateConverter,
+} from "react-nepali-date-picker-lite";
 
 function App() {
-  const [value, setValue] = useState(new Date());
-  return <Calendar value={value} onSelect={setValue} />;
+  const today = NepaliDateConverter.getNepaliDate();
+  const [value, setValue] = useState(today);
+  return <NepaliDatePicker value={value} onSelect={setValue} />;
 }
 ```
+
+## Author
+
+- [Rohan Adhikari](https://rohanadhikari.com.np/)
