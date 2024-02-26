@@ -60,6 +60,7 @@ it is the group of function which convert dates between Bs,Ad and many more.
 21. getBsyear(date)
 22. getBsmonth(date)
 23. getBsday(date)
+24. getBSMonths(month)
 
 ## Styling
 
